@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "679715985787",
+    "project_id": "sushiapi-a1466",
+    "storage_bucket": "sushiapi-a1466.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679715985787:android:7e49a519d808ad06eb85de",
+        "android_client_info": {
+          "package_name": "com.example.rent_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFMXs6Tbm9Z1c4JpsEyRPrr96Q1WmML9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

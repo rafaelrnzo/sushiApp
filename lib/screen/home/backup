@@ -1,0 +1,90 @@
+// import 'dart:html';
+
+// import 'package:flutter/material.dart';
+// import 'package:flutter/src/widgets/container.dart';
+// import 'package:flutter/src/widgets/framework.dart';
+// import 'package:rent_app/screen/home/widgets/bannerHome.dart';
+// import 'package:sizer/sizer.dart';
+
+// class HomePage extends StatefulWidget {
+//   const HomePage({super.key});
+
+//   @override
+//   State<HomePage> createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: homeAppbar(),
+//       body: Container(
+//         // padding: EdgeInsets.symmetric(horizontal: 16),
+//         child: Column(
+//           children: [
+//             SingleChildScrollView(
+//               child: Column(
+//                 children: [
+//                   BannerHome(),
+//                   Container(
+//                     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+//                     child: Column(
+//                       children: [
+//                         SizedBox(
+//                           height: 20.h,
+//                           width: double.infinity,
+//                           child: Card(
+//                             color: Colors.blue,
+//                             child: Text("halo"),
+//                           ),
+//                         ),
+//                         GridView(
+//                           shrinkWrap: true, // Added shrinkWrap property
+//                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//                             crossAxisCount: 2,
+//                             mainAxisSpacing: 10.0,
+//                             crossAxisSpacing: 10.0,
+//                           ),
+//                           children: [
+//                             Container(
+//                               // width: 50.w,
+//                               child: Card(
+//                                 elevation: 0,
+//                                 shape: RoundedRectangleBorder(
+//                                   borderRadius: BorderRadius.circular(8.0),
+//                                 ),
+//                               ),
+//                             ),
+//                             // Add more grid items here if needed
+//                           ],
+//                         )
+                        
+//                       ],
+//                     ),
+//                   )
+//                 ],
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+//   AppBar homeAppbar() {
+//     return AppBar(
+//       elevation: 0,
+//       title: Text('MyResto'),
+//       centerTitle: true,
+//       actions: <Widget>[
+//         Padding(
+//           padding: const EdgeInsets.all(8.0),
+//           child: IconButton(
+//             icon: Icon(Icons.discount),
+//             onPressed: () {},
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+// }
