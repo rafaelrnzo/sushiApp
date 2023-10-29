@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:rent_app/screen/home/homepage.dart';
 import 'package:rent_app/screen/menu/menuPage.dart';
+import 'package:rent_app/screen/order/myOrder.dart';
 import 'package:rent_app/screen/order/orderPage.dart';
 
 class BottomApp extends StatefulWidget {
@@ -18,7 +19,7 @@ class _BottomAppState extends State<BottomApp> {
   final List<Widget> _pages = [
     HomePage(),
     ScrollableTabBarExample(),
-    OrderPage()
+    MyOrderPage()
   ];
 
   @override

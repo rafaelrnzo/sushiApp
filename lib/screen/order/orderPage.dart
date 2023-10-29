@@ -7,18 +7,19 @@ import 'package:ionicons/ionicons.dart';
 import 'package:rent_app/assets/color.dart';
 import 'package:sizer/sizer.dart';
 
-class OrderPage extends StatefulWidget {
-  const OrderPage({super.key});
+class CheckoutPage extends StatefulWidget {
+  const CheckoutPage({super.key});
 
   @override
-  State<OrderPage> createState() => _OrderPageState();
+  State<CheckoutPage> createState() => _CheckoutPageState();
 }
 
-class _OrderPageState extends State<OrderPage> {
+class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
         toolbarHeight: 7.5.h,
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -95,7 +96,7 @@ class _OrderPageState extends State<OrderPage> {
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
               child: Column(
                 children: [
                   SizedBox(
@@ -420,4 +421,5 @@ class _OrderPageState extends State<OrderPage> {
       ),
     );
   }
+
 }

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations, unnecessary_brace_in_string_interps
+// ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations, unnecessary_brace_in_string_interps, unnecessary_this
 
 import 'package:flutter/material.dart';
 import 'package:rent_app/assets/color.dart';
@@ -8,16 +8,20 @@ class ButtonWithText extends StatelessWidget {
   const ButtonWithText({
     required this.icon,
     required this.text,
+    required this.onTapButton,
     Key? key,
   }) : super(key: key);
 
   final IconData icon;
+  final Function onTapButton;
   final String text;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        this.onTapButton();
+      },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

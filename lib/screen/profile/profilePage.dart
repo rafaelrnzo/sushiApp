@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:rent_app/assets/color.dart';
+import 'package:rent_app/screen/profile/proofPayment.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -20,48 +23,113 @@ class ProfilePage extends StatelessWidget {
       body: Column(
         children: [
           const Expanded(flex: 2, child: _TopPortion()),
+          SizedBox(
+            height: 16,
+          ),
           Expanded(
-            flex: 3,
+              flex: 5,
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        // height: 1000,
+                        width: double.infinity,
+                        child: Text(
+                          'Transaction',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      CardHistory(),
+                      CardHistory(),
+                      CardHistory(),
+                      CardHistory(),
+                      CardHistory(),
+                      CardHistory(),
+                    ],
+                  ),
+                ),
+              )),
+          // Expanded(
+          //   flex: 6,
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(8.0),
+          //     child: Column(
+          //       children: [
+          //         Text(
+          //           "Rafael Lorenzo",
+          //           style: Theme.of(context)
+          //               .textTheme
+          //               .headline6
+          //               ?.copyWith(fontWeight: FontWeight.bold),
+          //         ),
+          //         const SizedBox(height: 16),
+          //         // Row(
+
+          //         const _ProfileInfoRow()
+          //       ],
+          //     ),
+          //   ),
+          // ),
+        ],
+      ),
+    );
+  }
+}
+
+class CardHistory extends StatelessWidget {
+  const CardHistory({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      // height: 1000,
+      width: double.infinity,
+      child: InkWell(
+        onTap: (){
+          Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ProofPayment(),
+        ));
+        },
+        child: Card(
+          margin: EdgeInsets.only(bottom: 16),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Pre-order',
+                style: TextStyle(
+                    fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              Row(
+                mainAxisAlignment:
+                    MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Rafael Lorenzo",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6
-                        ?.copyWith(fontWeight: FontWeight.bold),
+                    'Success',
+                    style: TextStyle(
+                        fontSize: 16,
+                        ),
                   ),
-                  const SizedBox(height: 16),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [
-                  //     FloatingActionButton.extended(
-                  //       onPressed: () {},
-                  //       heroTag: 'follow',
-                  //       elevation: 0,
-                  //       label: const Text("Follow"),
-                  //       icon: const Icon(Icons.person_add_alt_1),
-                  //     ),
-                  //     const SizedBox(width: 16.0),
-                  //     FloatingActionButton.extended(
-                  //       onPressed: () {},
-                  //       heroTag: 'mesage',
-                  //       elevation: 0,
-                  //       backgroundColor: Colors.red,
-                  //       label: const Text("Message"),
-                  //       icon: const Icon(Icons.message_rounded),
-                  //     ),
-                  //   ],
-                  // ),
-                  const SizedBox(height: 16),
-                  const _ProfileInfoRow()
+                  Text(
+                    '10 Sep 2023',
+                    style: TextStyle(
+                        fontSize: 14,
+                        ),
+                  ),
                 ],
               ),
-            ),
+            ],
           ),
-        ],
+        )),
       ),
     );
   }
@@ -132,47 +200,42 @@ class _TopPortion extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         Container(
-          margin: const EdgeInsets.only(bottom: 70),
+          margin: const EdgeInsets.only(bottom: 0),
           decoration: BoxDecoration(
-              color: primary,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(16),
-                bottomRight: Radius.circular(16),
-              )),
+            color: primary,
+          ),
         ),
         Align(
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(
-            width: 150,
-            height: 150,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')),
-                  ),
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+              SizedBox(
+                width: 80,
+                height: 80,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                                'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')),
+                      ),
+                    ),
+                  ],
                 ),
-                // Positioned(
-                //   bottom: 0,
-                //   right: 0,
-                //   child: CircleAvatar(
-                //     radius: 20,
-                //     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                //     child: Container(
-                //       margin: const EdgeInsets.all(8.0),
-                //       decoration: const BoxDecoration(
-                //           color: Colors.green, shape: BoxShape.circle),
-                //     ),
-                //   ),
-                // ),
-              ],
-            ),
+              ),
+              Text(
+                "Rafael Lorenzo",
+                style: Theme.of(context).textTheme.headline6?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              const _ProfileInfoRow()
+            ],
           ),
         )
       ],

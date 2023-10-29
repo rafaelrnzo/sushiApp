@@ -1,6 +1,6 @@
 // import 'dart:html';
 
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, unnecessary_brace_in_string_interps, unused_local_variable
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, unnecessary_brace_in_string_interps, unused_local_variable, unused_import
 
 // import 'dart:html';
 
@@ -10,6 +10,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:rent_app/assets/color.dart';
+import 'package:rent_app/screen/home/qrScanner.dart';
+import 'package:rent_app/screen/home/topup/topUpPage.dart';
 import 'package:rent_app/screen/home/widgets/appbarHome.dart';
 import 'package:rent_app/screen/home/widgets/bannerHome.dart';
 import 'package:rent_app/screen/home/widgets/buttonWithText.dart';
@@ -43,6 +45,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.shopping_cart),backgroundColor: primary,) ,
         appBar: homeAppbar(context),
         body: SingleChildScrollView(
           child: Column(
@@ -119,12 +122,35 @@ class _HomePageState extends State<HomePage> {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     ButtonWithText(
-                                        text: 'Top Up', icon: Ionicons.add),
+                                        onTapButton: () {
+                                          Navigator.of(context)
+                                              .push(MaterialPageRoute(
+                                            builder: (context) =>
+                                                 TopUp(),
+                                          ));
+                                        },
+                                        text: 'Top Up',
+                                        icon: Ionicons.add),
                                     ButtonWithText(
+                                        onTapButton: () {
+                                          Navigator.of(context)
+                                              .push(MaterialPageRoute(
+                                            builder: (context) =>
+                                                const QRViewExample(),
+                                          ));
+                                        },
                                         text: 'Pay',
                                         icon: Ionicons.arrow_forward),
                                     ButtonWithText(
-                                        text: 'Promo', icon: Ionicons.ticket),
+                                        onTapButton: () {
+                                          Navigator.of(context)
+                                              .push(MaterialPageRoute(
+                                            builder: (context) =>
+                                                const QRViewExample(),
+                                          ));
+                                        },
+                                        text: 'Promo',
+                                        icon: Ionicons.ticket),
                                   ],
                                 ),
                               ),
