@@ -4,6 +4,8 @@
 
 // import 'dart:html';
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -16,7 +18,23 @@ import 'package:rent_app/screen/home/widgets/appbarHome.dart';
 import 'package:rent_app/screen/home/widgets/bannerHome.dart';
 import 'package:rent_app/screen/home/widgets/buttonWithText.dart';
 import 'package:rent_app/services/carsList.dart';
+import 'package:rent_app/services/product.dart';
 import 'package:sizer/sizer.dart';
+import 'package:http/http.dart' as http;
+
+Future<List<Product>> fetchProducts() async {
+  final response =
+      await http.get(Uri.parse('http://127.0.0.1:8000/api/product'));
+
+  if (response.statusCode == 200) {
+    final List<dynamic> data = jsonDecode(response.body);
+    List<Product> products =
+        data.map((item) => Product.fromJson(item)).toList();
+    return products;
+  } else {
+    throw Exception('Failed to load Products');
+  }
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,6 +45,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int count = 1;
+  late Future<List<Product>> futureProducts;
+
+  @override
+  void initState() {
+    super.initState();
+    futureProducts = fetchProducts();
+  }
 
   void incrementCount() {
     setState(() {
@@ -45,7 +70,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.shopping_cart),backgroundColor: primary,) ,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.shopping_cart),
+          backgroundColor: primary,
+        ),
         appBar: homeAppbar(context),
         body: SingleChildScrollView(
           child: Column(
@@ -125,8 +154,7 @@ class _HomePageState extends State<HomePage> {
                                         onTapButton: () {
                                           Navigator.of(context)
                                               .push(MaterialPageRoute(
-                                            builder: (context) =>
-                                                 TopUp(),
+                                            builder: (context) => TopUp(),
                                           ));
                                         },
                                         text: 'Top Up',
